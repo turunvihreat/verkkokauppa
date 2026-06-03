@@ -1,0 +1,344 @@
+:root {
+  color-scheme: light;
+  --brand: #284734;
+  --brand-dark: #1d3527;
+  --shirt: #003c3d;
+  --shirt-dark: #002f30;
+  --shirt-light: #0b5556;
+  --ink: #142019;
+  --muted: #58645d;
+  --line: #d9e1da;
+  --paper: #f8faf7;
+  --surface: #ffffff;
+  --yellow: #ffde59;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: 8px;
+  background: var(--brand);
+  pointer-events: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.page-shell {
+  width: min(1080px, calc(100% - 40px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 36px 0 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 500px) minmax(360px, 520px);
+  column-gap: clamp(34px, 6vw, 60px);
+  align-content: center;
+}
+
+.site-header {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 42px;
+}
+
+.logo {
+  width: min(270px, 100%);
+  height: auto;
+}
+
+.product {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: start;
+}
+
+.product-details {
+  grid-column: 1;
+  max-width: 500px;
+}
+
+.product-visuals {
+  grid-column: 2;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--brand);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(3.35rem, 6.2vw, 5.7rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.lead {
+  max-width: 16em;
+  margin: 22px 0 0;
+  color: var(--ink);
+  font-size: clamp(1.22rem, 2vw, 1.55rem);
+  font-weight: 760;
+  line-height: 1.24;
+}
+
+.price {
+  width: fit-content;
+  margin: 22px 0 0;
+  padding: 6px 14px 7px;
+  background: #d9ea9a;
+  color: var(--ink);
+  border-radius: 4px;
+  font-size: 1.45rem;
+  font-weight: 900;
+}
+
+.buy-button {
+  width: min(330px, 100%);
+  min-height: 56px;
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: var(--brand);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 12px 24px rgb(40 71 52 / 18%);
+  transition:
+    background-color 150ms ease,
+    transform 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.buy-button:hover,
+.buy-button:focus-visible {
+  background: var(--brand-dark);
+  box-shadow: 0 14px 30px rgb(40 71 52 / 24%);
+}
+
+.buy-button:active {
+  transform: translateY(1px);
+}
+
+.buy-button:focus-visible {
+  outline: 3px solid rgb(40 71 52 / 30%);
+  outline-offset: 3px;
+}
+
+.checkout-notes {
+  width: min(440px, 100%);
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.checkout-notes p {
+  margin: 7px 0 0;
+}
+
+.summary {
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.summary p {
+  margin: 0;
+}
+
+.summary p + p {
+  margin-top: 12px;
+}
+
+.facts {
+  margin: 28px 0 0;
+  display: grid;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.facts div {
+  min-height: 60px;
+  display: grid;
+  grid-template-columns: 114px 1fr;
+  gap: 16px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+}
+
+.facts div:first-child {
+  border-top: 0;
+}
+
+dt,
+dd {
+  margin: 0;
+}
+
+dt {
+  color: var(--brand);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+dd {
+  font-weight: 740;
+}
+
+.shirt-mockup {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgb(20 32 25 / 12%);
+}
+
+.shirt-shape {
+  width: 96%;
+  height: 96%;
+  filter: drop-shadow(0 24px 24px rgb(20 32 25 / 18%));
+}
+
+.shirt-body {
+  fill: var(--shirt);
+}
+
+.shirt-collar {
+  fill: none;
+  stroke: var(--shirt-light);
+  stroke-width: 34;
+  stroke-linecap: round;
+}
+
+.shirt-neck {
+  fill: none;
+  stroke: var(--shirt-dark);
+  stroke-width: 12;
+  stroke-linecap: round;
+  opacity: 0.9;
+}
+
+.shirt-stitch,
+.shirt-hem {
+  fill: none;
+  stroke: var(--shirt-dark);
+  stroke-width: 10;
+  opacity: 0.26;
+}
+
+.shirt-hem {
+  stroke-width: 12;
+  opacity: 0.24;
+}
+
+.shirt-print {
+  position: absolute;
+  top: 29%;
+  left: 50%;
+  width: 38%;
+  max-width: 220px;
+  transform: translateX(-50%);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
+@supports not (grid-template-columns: subgrid) {
+  .product {
+    grid-template-columns: minmax(0, 500px) minmax(360px, 520px);
+    column-gap: clamp(34px, 6vw, 60px);
+  }
+}
+
+@media (max-width: 860px) {
+  .page-shell {
+    width: min(100% - 32px, 680px);
+    padding: 28px 0 38px;
+    display: block;
+  }
+
+  .site-header {
+    margin-bottom: 24px;
+  }
+
+  .logo {
+    width: min(260px, 78vw);
+  }
+
+  .product {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .product-visuals {
+    grid-column: auto;
+    order: -1;
+  }
+
+  .product-details {
+    grid-column: auto;
+    max-width: none;
+  }
+
+  .lead {
+    max-width: 18em;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-shell {
+    width: min(100% - 24px, 680px);
+  }
+
+  h1 {
+    font-size: clamp(2.9rem, 17vw, 4.3rem);
+  }
+
+  .facts div {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    align-items: start;
+    padding: 14px 0;
+  }
+}
