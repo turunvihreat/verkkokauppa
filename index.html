@@ -1,95 +1,664 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fi">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Turun vihreiden ratikkapaita | 25 €</title>
-    <meta
-      name="description"
-      content="Turun vihreiden ratikkapaita on laadukas, rento unisex T-paita 100 % luomupuuvillasta. Hinta 25 €."
-    >
-    <meta property="og:title" content="Turun vihreiden ratikkapaita">
-    <meta
-      property="og:description"
-      content="Laadukas rento T-paita Turun ratikan ja vihreän kaupungin puolesta. 25 €."
-    >
-    <meta property="og:image" content="turkuraitsikka_previkka.jpg">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <main class="page-shell">
-      <header class="site-header" aria-label="Sivuston otsake">
-        <img
-          class="logo"
-          src="Vihreat_Logo_HOR_RGB_FIN_SWE.png"
-          alt="Vihreät - De Gröna"
-          width="500"
-          height="120"
-        >
-      </header>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turun Vihreiden Ratikkatuotteet</title>
+<meta name="description" content="Turun Vihreiden ratikkatuotteet: T-paita, huppari ja kangaskassi 100 % luomupuuvillasta. Hinnat ovat enimmäishintoja.">
+<meta property="og:title" content="Turun Vihreiden Ratikkatuotteet">
+<meta property="og:description" content="T-paita, huppari ja kangaskassi Turun ratikan ja vihreän kaupungin puolesta.">
+<meta property="og:image" content="assets/IMG_0411.jpeg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2d6a4f;
+    --green-light: #52b788;
+    --green-pale: #d8f3dc;
+    --cream: #faf7f2;
+    --dark: #1a1a1a;
+    --mid: #5a5a5a;
+    --border: #ddd8ce;
+    --tram-yellow: #f4c430;
+    --surface: #fff;
+  }
 
-      <section class="product" aria-labelledby="product-title">
-        <div class="product-details">
-          <p class="eyebrow">Turun vihreät</p>
-          <h1 id="product-title">Ratikkapaita</h1>
-          <p class="lead">
-            Pue päälle kannanotto sujuvamman, vihreämmän ja viihtyisämmän Turun puolesta.
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  .topbar {
+    border-top: 8px solid var(--green);
+    padding: 28px 24px 0;
+  }
+
+  .topbar-inner {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .brand-logo {
+    width: min(270px, 68vw);
+    height: auto;
+  }
+
+  .topbar-cta {
+    color: var(--green);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .topbar-cta:hover { text-decoration: underline; }
+
+  .products {
+    width: min(1100px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 54px 0 76px;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.35rem, 5vw, 4.7rem);
+    font-weight: 900;
+    color: var(--green);
+    line-height: 0.98;
+    max-width: 820px;
+  }
+
+  .section-intro {
+    max-width: 650px;
+    margin-top: 20px;
+    color: var(--mid);
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  .cert-strip {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cert-strip span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(45, 106, 79, 0.22);
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.54);
+    color: var(--green);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 7px 12px;
+  }
+
+  .cert-strip span::before {
+    content: '✓';
+    color: var(--green-light);
+    font-weight: 900;
+  }
+
+  .product-list {
+    margin-top: 42px;
+    display: grid;
+    gap: 22px;
+  }
+
+  .product-card {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+    min-height: 430px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: 0 16px 46px rgba(45, 106, 79, 0.08);
+  }
+
+  .product-media {
+    min-height: 100%;
+    background: var(--green-pale);
+  }
+
+  .image-zoom {
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    border: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+    cursor: zoom-in;
+    background: var(--green-pale);
+    overflow: hidden;
+    font: inherit;
+  }
+
+  .image-zoom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+
+  .image-zoom:hover img,
+  .image-zoom:focus-visible img { transform: scale(1.035); }
+
+  .image-zoom:focus-visible {
+    outline: 4px solid rgba(244, 196, 48, 0.9);
+    outline-offset: -4px;
+  }
+
+  .zoom-label {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    border-radius: 100px;
+    background: rgba(250, 247, 242, 0.92);
+    color: var(--green);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 7px 11px;
+  }
+
+  .image-pair {
+    height: 100%;
+    min-height: 430px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .image-pair .image-zoom { min-height: 430px; }
+
+  .product-body {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(24px, 4vw, 44px);
+  }
+
+  .product-kicker {
+    color: var(--green-light);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 900;
+    color: var(--dark);
+    line-height: 1.04;
+  }
+
+  .product-desc {
+    margin-top: 18px;
+    color: var(--mid);
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+
+  .cert-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 22px;
+  }
+
+  .cert-pill {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 4px 9px;
+    border-radius: 100px;
+    border: 1px solid var(--green-light);
+    color: var(--green);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .product-bottom {
+    margin-top: auto;
+    padding-top: 28px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  .product-note {
+    max-width: 260px;
+    color: var(--mid);
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+
+  .product-price {
+    flex-shrink: 0;
+    color: var(--green);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    font-weight: 900;
+    line-height: 1;
+    text-align: right;
+  }
+
+  .product-price span {
+    display: block;
+    margin-top: 5px;
+    color: var(--mid);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .preorder-tag {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 18px;
+    border-radius: 100px;
+    background: var(--tram-yellow);
+    color: var(--dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 11px;
+  }
+
+  .cta-section {
+    padding: 78px 24px 92px;
+    background: var(--green);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 10% 50%, rgba(82,183,136,0.25) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 60% at 90% 20%, rgba(244,196,48,0.12) 0%, transparent 45%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    width: min(720px, 100%);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .cta-eyebrow {
+    color: var(--green-light);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.05rem, 5vw, 3.6rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+  }
+
+  .cta-title em {
+    font-style: italic;
+    color: var(--tram-yellow);
+  }
+
+  .cta-desc {
+    max-width: 520px;
+    margin: 18px auto 34px;
+    color: rgba(255,255,255,0.74);
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 58px;
+    padding: 17px 34px;
+    border-radius: 100px;
+    background: #fff;
+    color: var(--green);
+    font-size: 1rem;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+
+  .btn-cta:hover,
+  .btn-cta:focus-visible {
+    transform: translateY(-2px);
+    background: var(--tram-yellow);
+    color: var(--dark);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.22);
+  }
+
+  .btn-cta:focus-visible {
+    outline: 3px solid rgba(255,255,255,0.55);
+    outline-offset: 4px;
+  }
+
+  .btn-cta svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  .cta-note {
+    margin-top: 18px;
+    color: rgba(255,255,255,0.56);
+    font-size: 0.8rem;
+  }
+
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 28px 24px;
+    font-size: 0.8rem;
+  }
+
+  footer strong { color: rgba(255,255,255,0.85); }
+
+  .image-dialog {
+    width: min(96vw, 1100px);
+    max-height: 92vh;
+    padding: 0;
+    border: 0;
+    border-radius: 14px;
+    background: transparent;
+  }
+
+  .image-dialog::backdrop { background: rgba(26, 26, 26, 0.78); }
+
+  .dialog-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #111;
+  }
+
+  .dialog-frame img {
+    width: 100%;
+    max-height: 92vh;
+    object-fit: contain;
+  }
+
+  .dialog-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(250, 247, 242, 0.94);
+    color: var(--dark);
+    cursor: pointer;
+    font-size: 1.7rem;
+    line-height: 1;
+  }
+
+  .dialog-close:focus-visible {
+    outline: 3px solid var(--tram-yellow);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 820px) {
+    .topbar-inner {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .products {
+      width: min(100% - 32px, 680px);
+      padding-top: 42px;
+    }
+
+    .product-card {
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+
+    .image-zoom,
+    .image-pair,
+    .image-pair .image-zoom {
+      min-height: 320px;
+    }
+
+    .image-pair { grid-template-columns: 1fr; }
+
+    .product-bottom {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .product-price { text-align: left; }
+  }
+
+  @media (max-width: 520px) {
+    .topbar { padding: 22px 18px 0; }
+    .products { width: min(100% - 24px, 680px); }
+    .section-title { font-size: clamp(2.05rem, 13vw, 3.2rem); }
+    .image-zoom,
+    .image-pair,
+    .image-pair .image-zoom { min-height: 260px; }
+    .product-body { padding: 22px; }
+    .cert-pill { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar" aria-label="Sivuston otsake">
+  <div class="topbar-inner">
+    <img
+      class="brand-logo"
+      src="assets/Vihreat_Logo_HOR_RGB_FIN_SWE.png"
+      alt="Vihreät - De Gröna"
+      width="500"
+      height="120"
+    >
+    <a class="topbar-cta" href="#tilaus">Ennakkotilaa</a>
+  </div>
+</header>
+
+<main>
+  <section class="products" aria-labelledby="products-title">
+    <p class="section-label">Turun vihreät</p>
+    <h1 class="section-title" id="products-title">Ratikkatuotteet</h1>
+    <p class="section-intro">
+      Kolme 100&nbsp;% luomupuuvillasta valmistettua tuotetta juhlistamaan Turun ratikkapäätöstä.
+      Hinnat ovat enimmäishintoja, jotka tarkentuvat ensi viikolla. Ennakkotilaus sulkeutuu tiistaina 9.6. kello 16.00.
+      Ennakkotilaukset ovat sitovia annetuilla enimmäishinnoilla, ja osaa tuotteista sekä väri- ja kokovaihtoehdoista on saatavilla vain ennakkotilauksena.
+    </p>
+
+    <div class="cert-strip" aria-label="Tuotteiden sertifikaatit">
+      <span>Fair Wear</span>
+      <span>PETA-hyväksytty vegaaninen</span>
+      <span>OEKO-TEX</span>
+      <span>GOTS valituissa tuotteissa</span>
+      <span>100 % luomupuuvilla</span>
+    </div>
+
+    <div class="product-list">
+      <article class="product-card">
+        <div class="product-media">
+          <button class="image-zoom" type="button" data-full="assets/IMG_0411.jpeg" aria-label="Suurenna T-paidan kuva">
+            <img src="assets/IMG_0411.jpeg" alt="Turun Vihreiden ratikka-aiheinen T-paita">
+            <span class="zoom-label">Suurenna</span>
+          </button>
+        </div>
+        <div class="product-body">
+          <p class="product-kicker">Sparker 2.0</p>
+          <h2 class="product-name">T-paita</h2>
+          <p class="product-desc">
+            Sparker 2.0 100&nbsp;% luomupuuvillasta tehty T-paita, jolla on sertifikaatit
+            Fair Wear, PETA-hyväksytty vegaaninen, OEKO-TEX ja GOTS.
           </p>
-          <p class="price">25 €</p>
-
-          <a
-            class="buy-button"
-            href="https://buy.stripe.com/eVqfZi7Hjau51TK1jeenS01"
-          >
-            Osta
-          </a>
-
-          <div class="checkout-notes" aria-label="Maksu- ja myyjätiedot">
-            <p>Maksut, tilaustiedot ja kokovalinta tehdään Stripe-palvelussa.</p>
-            <p>Myyjä: Turun vihreät ry, Y-tunnus 2016520-8, Yliopistonkatu 37, 20100 TURKU.</p>
+          <div class="cert-pills" aria-label="T-paidan sertifikaatit">
+            <span class="cert-pill">Fair Wear</span>
+            <span class="cert-pill">PETA vegaaninen</span>
+            <span class="cert-pill">OEKO-TEX</span>
+            <span class="cert-pill">GOTS</span>
           </div>
-
-          <div class="summary">
-            <p>
-              Turun vihreiden ratikkapaita on rento unisex T-paita, joka toimii niin kampanjakentillä,
-              kaupunkitapahtumissa kuin arjen suosikkipaitana.
-            </p>
-            <p>
-              Normaalia paksumpi 215 g/m2 luomupuuvillakangas pitää hyvin muotonsa ja rypistyy
-              vähemmän kuin tavallinen T-paitakangas.
-            </p>
-          </div>
-
-          <dl class="facts" aria-label="Tuotetiedot">
-            <div>
-              <dt>Malli</dt>
-              <dd>Unisex relaxed fit</dd>
-            </div>
-            <div>
-              <dt>Materiaali</dt>
-              <dd>100 % luomupuuvilla</dd>
-            </div>
-            <div>
-              <dt>Sertifikaatit</dt>
-              <dd>Fair Wear, PETA-hyväksytty vegaaninen, OEKO-TEX ja GOTS</dd>
-            </div>
-            <div>
-              <dt>Rakenne</dt>
-              <dd>Set-in sleeve, 1x1 rib neck collar, twin needle topstitch</dd>
-            </div>
-          </dl>
-        </div>
-
-        <div class="product-visuals">
-          <div class="shirt-mockup" aria-label="Tuotekuva: ratikkapaita värissä #003c3d">
-            <img
-              class="shirt-print"
-              src="assets/turkuraitsikka_previkka.jpg"
-              alt="Ratikkapaidan tarkka painatus"
-            >
+          <div class="product-bottom">
+            <p class="product-note">Enimmäishinta</p>
+            <p class="product-price">max. 25 € <span>/ kpl</span></p>
           </div>
         </div>
-      </section>
-    </main>
-  </body>
+      </article>
+
+      <article class="product-card">
+        <div class="product-media">
+          <button class="image-zoom" type="button" data-full="assets/IMG_0413.jpeg" aria-label="Suurenna hupparin kuva">
+            <img src="assets/IMG_0413.jpeg" alt="Turun Vihreiden ratikka-aiheinen huppari">
+            <span class="zoom-label">Suurenna</span>
+          </button>
+        </div>
+        <div class="product-body">
+          <p class="product-kicker">Cruiser 2.0</p>
+          <h2 class="product-name">Huppari</h2>
+          <p class="product-desc">
+            Huppareita voi todennäköisesti tilata vain ennakkotilauksena. Huppari on mallia Cruiser 2.0,
+            vetoketjuton 100&nbsp;% luomupuuvillasta tehty huppari, jolla on sertifikaatit Fair Wear,
+            PETA-hyväksytty vegaaninen, OEKO-TEX ja GOTS.
+          </p>
+          <span class="preorder-tag">Vain ennakkotilauksena</span>
+          <div class="cert-pills" aria-label="Hupparin sertifikaatit">
+            <span class="cert-pill">Fair Wear</span>
+            <span class="cert-pill">PETA vegaaninen</span>
+            <span class="cert-pill">OEKO-TEX</span>
+            <span class="cert-pill">GOTS</span>
+          </div>
+          <div class="product-bottom">
+            <p class="product-note">Enimmäishinta</p>
+            <p class="product-price">max. 40 € <span>/ kpl</span></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-media">
+          <div class="image-pair" aria-label="Kangaskassin kaksi kuvavaihtoehtoa">
+            <button class="image-zoom" type="button" data-full="assets/IMG_0414.jpeg" aria-label="Suurenna kangaskassin ensimmäinen kuva">
+              <img src="assets/IMG_0414.jpeg" alt="Turun Vihreiden ratikka-aiheinen kangaskassi, kuvavaihtoehto 1">
+              <span class="zoom-label">Suurenna</span>
+            </button>
+            <button class="image-zoom" type="button" data-full="assets/IMG_0415.jpeg" aria-label="Suurenna kangaskassin toinen kuva">
+              <img src="assets/IMG_0415.jpeg" alt="Turun Vihreiden ratikka-aiheinen kangaskassi, kuvavaihtoehto 2">
+              <span class="zoom-label">Suurenna</span>
+            </button>
+          </div>
+        </div>
+        <div class="product-body">
+          <p class="product-kicker">Mid Tote Bag</p>
+          <h2 class="product-name">Kangaskassi</h2>
+          <p class="product-desc">
+            Kangaskassi on mallia Mid Tote Bag, 100&nbsp;% luomupuuvillasta tehty kangaskassi,
+            jolla on sertifikaatit Fair Wear, PETA-hyväksytty vegaaninen ja OEKO-TEX.
+          </p>
+          <div class="cert-pills" aria-label="Kangaskassin sertifikaatit">
+            <span class="cert-pill">Fair Wear</span>
+            <span class="cert-pill">PETA vegaaninen</span>
+            <span class="cert-pill">OEKO-TEX</span>
+          </div>
+          <div class="product-bottom">
+            <p class="product-note">Enimmäishinta</p>
+            <p class="product-price">max. 15 € <span>/ kpl</span></p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta-section" id="tilaus">
+    <div class="cta-inner">
+      <p class="cta-eyebrow">Ennakkotilaus</p>
+      <h2 class="cta-title">Tee <em>ennakkotilaus</em> Google Formsissa</h2>
+      <p class="cta-desc">
+        Lomake avautuu uuteen välilehteen. Ilmoitetut hinnat ovat enimmäishintoja ja tilaus on sitova näillä hinnoilla.
+      </p>
+      <a class="btn-cta" href="https://forms.gle/vwtUu9UwJSLoW2SQ8" target="_blank" rel="noopener">
+        Avaa ennakkotilauslomake
+        <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path d="M5 13 13 5M7 5h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>Turun vihreät</strong> &nbsp;·&nbsp; Ratikkatuotteet 2026
+</footer>
+
+<dialog class="image-dialog" aria-label="Suurennettu tuotekuva">
+  <div class="dialog-frame">
+    <button class="dialog-close" type="button" aria-label="Sulje suurennettu kuva">×</button>
+    <img src="" alt="">
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.querySelector('.image-dialog');
+  const dialogImage = dialog.querySelector('img');
+  const dialogClose = dialog.querySelector('.dialog-close');
+
+  document.querySelectorAll('.image-zoom').forEach((button) => {
+    button.addEventListener('click', () => {
+      const image = button.querySelector('img');
+      dialogImage.src = button.dataset.full;
+      dialogImage.alt = image.alt;
+      dialog.showModal();
+    });
+  });
+
+  dialogClose.addEventListener('click', () => dialog.close());
+
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) {
+      dialog.close();
+    }
+  });
+</script>
+</body>
 </html>
