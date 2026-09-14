@@ -295,6 +295,47 @@
     padding: 6px 11px;
   }
 
+  .product-actions {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+  }
+
+  .btn-product {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 18px;
+    border-radius: 100px;
+    background: var(--green);
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-product:hover,
+  .btn-product:focus-visible {
+    transform: translateY(-1px);
+    background: #204d39;
+    box-shadow: 0 10px 24px rgba(45, 106, 79, 0.18);
+  }
+
+  .btn-product:focus-visible {
+    outline: 3px solid rgba(244, 196, 48, 0.7);
+    outline-offset: 3px;
+  }
+
+  .stripe-note {
+    color: var(--mid);
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
   .cta-section {
     padding: 78px 24px 92px;
     background: var(--green);
@@ -497,7 +538,6 @@
       width="500"
       height="120"
     >
-    <a class="topbar-cta" href="#tilaus">Ennakkotilaa</a>
   </div>
 </header>
 
@@ -506,9 +546,7 @@
     <p class="section-label">Turun vihreät</p>
     <h1 class="section-title" id="products-title">Ratikkatuotteet</h1>
     <p class="section-intro">
-      Turkulainen kuvittaja Tuuli Hypén on piirtänyt Turun vihreille upean Turkuun tulevaa raitiotietä juhlistavan designin, jolla voi nyt tilata sekä T-paitoja, huppareita että kangaskasseja.
-      Hinnat ovat enimmäishintoja, jotka tarkentuvat ensi viikolla. Ennakkotilaus sulkeutuu tiistaina 9.6. kello 16.00.
-      Ennakkotilaukset ovat sitovia annetuilla enimmäishinnoilla. Ennakkotilaamalla varmistat, että saat ensi kevään vaaliteltoille, juhliin ja arjen rientoihin juuri oikean koon ja suosikkivärisi. Osaa tuotteista tulee myös myöhemmin ostettavaksi, mutta ainakin hupparia ja mustia värivaihtoehtoja saa ainoastaan ennakkotilaamalla.
+      Turkulainen kuvittaja Tuuli Hypén on piirtänyt Turun vihreille upean Turkuun tulevaa raitiotietä juhlistavan designin, jolla voi nyt tilata sekä T-paitoja, huppareita että kangaskasseja. Tuotteet ovat nyt noudettavissa, ja tämän sivun kautta voit maksaa tilauksesi tai tilata lisätuotteita postitse!
     </p>
 
     <div class="cert-strip" aria-label="Tuotteiden sertifikaatit">
@@ -541,8 +579,12 @@
             <span class="cert-pill">GOTS</span>
           </div>
           <div class="product-bottom">
-            <p class="product-note">Enimmäishinta</p>
-            <p class="product-price">max. 25 € <span>/ kpl</span></p>
+            <p class="product-note"></p>
+            <p class="product-price">25 € <span>/ kpl</span></p>
+          </div>
+          <div class="product-actions">
+            <a class="btn-product" href="https://buy.stripe.com/14AdR2cwE6fGbji6WAbAs00?locale=fi" target="_blank" rel="noopener">Osta Stripen kautta</a>
+            <span class="stripe-note">Valitse määrä ja koko kassalla.</span>
           </div>
         </div>
       </article>
@@ -570,8 +612,12 @@
             <span class="cert-pill">GOTS</span>
           </div>
           <div class="product-bottom">
-            <p class="product-note">Enimmäishinta</p>
-            <p class="product-price">max. 40 € <span>/ kpl</span></p>
+            <p class="product-note"></p>
+            <p class="product-price">40 € <span>/ kpl</span></p>
+          </div>
+          <div class="product-actions">
+            <a class="btn-product" href="https://buy.stripe.com/14AdR2cwE6fGbji6WAbAs00?locale=fi" target="_blank" rel="noopener">Osta Stripen kautta</a>
+            <span class="stripe-note">Valitse määrä ja koko kassalla.</span>
           </div>
         </div>
       </article>
@@ -602,8 +648,12 @@
             <span class="cert-pill">OEKO-TEX</span>
           </div>
           <div class="product-bottom">
-            <p class="product-note">Enimmäishinta</p>
-            <p class="product-price">max. 15 € <span>/ kpl</span></p>
+            <p class="product-note"></p>
+            <p class="product-price">15 € <span>/ kpl</span></p>
+          </div>
+          <div class="product-actions">
+            <a class="btn-product" href="https://buy.stripe.com/14AdR2cwE6fGbji6WAbAs00?locale=fi" target="_blank" rel="noopener">Osta Stripen kautta</a>
+            <span class="stripe-note">Valitse määrä ja kuvavaihtoehto kassalla.</span>
           </div>
         </div>
       </article>
@@ -612,17 +662,18 @@
 
   <section class="cta-section" id="tilaus">
     <div class="cta-inner">
-      <p class="cta-eyebrow">Ennakkotilaus</p>
-      <h2 class="cta-title">Tee <em>ennakkotilaus</em> Google Formsissa</h2>
+      <p class="cta-eyebrow">Tilaus</p>
+      <h2 class="cta-title">Tee <em>tilaus</em> Stripe Checkoutissa</h2>
       <p class="cta-desc">
-        Lomake avautuu uuteen välilehteen. Ilmoitetut hinnat ovat enimmäishintoja ja tilaus on sitova näillä hinnoilla.
+        Stripe avautuu uuteen välilehteen. Voit lisätä samaan tilaukseen T-paidan, hupparin ja kangaskassin sekä valita määrät kassalla.
       </p>
-      <a class="btn-cta" href="https://forms.gle/vwtUu9UwJSLoW2SQ8" target="_blank" rel="noopener">
-        Avaa ennakkotilauslomake
+      <a class="btn-cta" href="https://buy.stripe.com/14AdR2cwE6fGbji6WAbAs00?locale=fi" target="_blank" rel="noopener">
+        Siirry Stripe-kassalle
         <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
           <path d="M5 13 13 5M7 5h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
       </a>
+      <p class="cta-note">Maksu ja tilauksen tiedot käsitellään turvallisesti Stripen kassalla.</p>
     </div>
   </section>
 </main>
